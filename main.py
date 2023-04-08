@@ -48,12 +48,7 @@ async def on_ready():
         if len(stream_data["data"]) == 1 and not is_live:
             print("Stream is live")
             is_live = True
-            await channel.send(
-                "[All] "
-                + streamer_name
-                + " (Draven): "
-                + stream_data["data"][0]["title"]
-            )
+            await channel.send(stream_data["data"][0]["title"])
         elif len(stream_data["data"]) == 0 and is_live:
             print("Stream is offline")
             is_live = False
