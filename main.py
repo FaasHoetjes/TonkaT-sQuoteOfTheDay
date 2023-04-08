@@ -2,6 +2,7 @@ import discord
 import os
 import requests
 import asyncio
+import random
 from dotenv import load_dotenv
 
 
@@ -40,6 +41,8 @@ async def on_ready():
     is_live = False
 
     while True:
+        random_number = random.randint(1, 10000)
+        print("Random number is: " + str(random_number))
         stream = requests.get(
             f"https://api.twitch.tv/helix/streams?user_login={streamer_name}",
             headers=headers,
@@ -53,6 +56,8 @@ async def on_ready():
             print("Stream is offline")
             is_live = False
             await channel.send(streamer_name + " is offline")
+        elif random_number == 1:
+            await channel.send("DOPA DOWNNN!")
         await asyncio.sleep(60)
 
 
