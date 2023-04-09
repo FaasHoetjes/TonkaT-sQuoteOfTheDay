@@ -55,7 +55,6 @@ async def on_ready():
         elif len(stream_data["data"]) == 0 and is_live:
             print("Stream is offline")
             is_live = False
-            await channel.send(streamer_name + " is offline")
         elif random_number == 1:
             await channel.send("DOPA DOWNNN!")
         await asyncio.sleep(60)
